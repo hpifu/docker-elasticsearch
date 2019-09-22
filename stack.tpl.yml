@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   elasticsearch:
-    image: hatlonely/elasticsearch:1.0.0
+    image: elasticsearch:7.3.2
     hostname: elasticsearch
     deploy:
       replicas: 1
@@ -11,10 +11,12 @@ services:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      - "${HOME}/var/docker/elasticsearch/log:/usr/share/elasticsearch/logs"
-      - "${HOME}/var/docker/elasticsearch/data:/usr/share/elasticsearch/data"
+      - "/var/docker/elasticsearch/log:/usr/share/elasticsearch/logs"
+      - "/var/docker/elasticsearch/data:/usr/share/elasticsearch/data"
     networks:
       - elasticsearchnet
+    environment:
+      - "discovery.type=single-node"
 networks:
   elasticsearchnet:
     name: elasticsearchnet
