@@ -15,7 +15,6 @@ remove:
 	docker stack rm ${repository}
 
 build:
-	docker build --tag=${user}/${repository}:${version} .
 	sed 's/image: ${user}\/${repository}:.*$$/image: ${user}\/${repository}:${version}/g' stack.tpl.yml > stack.yml
 
 push:
