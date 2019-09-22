@@ -1,2 +1,2 @@
-FROM elasticsearch:6.8.0
+FROM elasticsearch:7.3.2
 COPY elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
