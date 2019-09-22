@@ -17,6 +17,7 @@ services:
       - elasticsearchnet
     environment:
       - "discovery.type=single-node"
+      - "node.name=node-1"
 networks:
   elasticsearchnet:
     name: elasticsearchnet
