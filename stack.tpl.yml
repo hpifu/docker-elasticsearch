@@ -16,7 +16,7 @@ services:
     networks:
       - elasticsearchnet
     environment:
-      - "ES_JAVA_OPTS=-Xms1536m -Xmx1536"
+      - "ES_JAVA_OPTS=-Xms1536m -Xmx1536m"
       - "discovery.type=single-node"
       - "node.name=node-1"
 networks:
