@@ -16,6 +16,7 @@ services:
     networks:
       - elasticsearchnet
     environment:
+      - "ES_JAVA_OPTS=-Xms3g -Xmx3g"
       - "discovery.type=single-node"
       - "node.name=node-1"
 networks:
