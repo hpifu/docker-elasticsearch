@@ -19,6 +19,7 @@ services:
       - "ES_JAVA_OPTS=-Xms1536m -Xmx1536m"
       - "discovery.type=single-node"
       - "node.name=node-1"
+      - "network.host=0.0.0.0"
 networks:
   elasticsearchnet:
     name: elasticsearchnet
