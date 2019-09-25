@@ -1,6 +1,4 @@
-version=$(shell git describe --tags)
 repository=elasticsearch
-user=hatlonely
 
 .PHONY: deploy remove build push
 
@@ -13,12 +11,6 @@ deploy:
 
 remove:
 	docker stack rm ${repository}
-
-build:
-	sed 's/image: ${user}\/${repository}:.*$$/image: ${user}\/${repository}:${version}/g' stack.tpl.yml > stack.yml
-
-push:
-	docker push ${user}/${repository}:${version}
 
 logs:
 	docker logs $$(docker ps --filter name=$(repository) -q)
