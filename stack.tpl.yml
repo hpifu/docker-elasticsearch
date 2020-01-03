@@ -13,13 +13,14 @@ services:
     volumes:
       - "/var/docker/${repository}/log:/usr/share/${repository}/logs"
       - "/var/docker/${repository}/data:/usr/share/${repository}/data"
-    networks:
-      - ${repository}net
     environment:
       - "ES_JAVA_OPTS=-Xms1536m -Xmx1536m"
       - "discovery.type=single-node"
       - "node.name=node-1"
       - "network.host=0.0.0.0"
+    networks:
+      - online
 networks:
-  ${repository}net:
-    name: ${repository}net
+  online:
+    external: true
+    name: online
